@@ -1,0 +1,12 @@
+# r things
+*.Rproj
+.Rproj.user
+.Rhistory
+.RData
+
+# macos stuff
+.DS_Store
+.Rapp.history
+
+# microsoft stuff
+~*
