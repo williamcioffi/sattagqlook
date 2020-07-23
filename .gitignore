@@ -1,3 +1,6 @@
+# dev things
+inst/shiny-guts/test.csv
+
 # r things
 *.Rproj
 .Rproj.user

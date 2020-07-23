@@ -1,0 +1,14 @@
+citHeader("To cite sattagqlook in publications use:")
+
+citEntry(
+  entry    = "Manual",
+  title    = "sattagqlook: quick visualization of splash10 tags",
+  author   = "William R Cioffi",
+  year     = "2020",
+  note     = "R package version 0.1.0",
+  url      = "https://github.com/williamcioffi/sattagqlook",
+  doi      = "",
+  textVersion = paste(
+    "Cioffi WR (2020). sattagqlook: visualize Argos Goniometer output in the field. R package version 0.1.0. https://github.com/williamcioffi/sattagqlook."
+  )
+)
