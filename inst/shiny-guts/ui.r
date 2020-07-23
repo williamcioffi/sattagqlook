@@ -10,7 +10,7 @@ navbarPage('sattagqlook',
       column(1, shinyFiles::shinyDirButton('datapath', 'data dir', 'Please select a data dir', FALSE)),
       column(8, textOutput('datadirtext'))
       ),
-      textInput('datadirpath', '--or-- enter path here:', value = '/abs/path/to/tags'),
+      textInput('datadirpath', '--or-- enter path here:', value = lastusedpath, width = '80%'),
       hr(),
       strong('2. upload tags:'),
       fluidRow(
@@ -50,7 +50,10 @@ navbarPage('sattagqlook',
     p('table 4. series data and gap summary'),
     tableOutput('seriessum')
   )),
-  tabPanel('behavior', mainPanel()),
+  tabPanel('behavior', mainPanel(
+    uiOutput('behtags'),
+    plotOutput('behplot')
+  )),
   tabPanel('series', mainPanel()),
   tabPanel('pressure health', mainPanel()),
   tabPanel('positions', mainPanel())

@@ -25,6 +25,7 @@ function(input, output, session) {
       out <- ""
     } else {
       updateTextInput(session, 'datadirpath', value = out)
+      write.table(out, 'lastfile', sep = ',', row.names = FALSE, col.names = FALSE)
     }
     
     out
@@ -37,12 +38,19 @@ function(input, output, session) {
       }, error = function(e) {
         warning(e)
       })
+    
+    write.table(input$datadirpath, 'lastfile', sep = ',', row.names = FALSE, col.names = FALSE)
+    
     output$uploadsuccess <- renderText(paste('uploaded', length(tags), 'tags'))
     calculatestats()
     output$statuscorrupt <- renderTable(statuscorruptdf)
     output$locationsum <- renderTable(locationsdf)
     output$behaviorsum <- renderTable(behaviordf)
     output$seriessum <- renderTable(seriesdf)
+    
+    output$behtags <- renderUI({
+      if(!is.null(tags)) selectInput('behtags', 'select a tag:', c(paste(DeployID(tags), Ptt(tags))))
+    })
   })
   
   # add a line to the cee table
@@ -76,8 +84,5 @@ function(input, output, session) {
     ceetable_cur <<- ceetabdf_tmp
     output$ceetab <- renderTable(ceetable_cur)
   })
-  
-  ### summary
-  
 
 }

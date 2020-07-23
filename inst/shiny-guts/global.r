@@ -9,6 +9,9 @@ locationsdf <- NULL
 behaviordf <- NULL
 seriesdf <- NULL
 
+# last used path
+lastusedpath <- read.table("lastfile", header = FALSE, sep = ',', stringsAsFactors = FALSE)[1, 1]
+
 
 # helper functions
 calculatestats <- function() {
