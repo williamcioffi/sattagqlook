@@ -37,8 +37,21 @@ navbarPage('sattagqlook',
       tableOutput('ceetab')
     )
   ),
-  tabPanel('summary', mainPanel()),
+  tabPanel('summary', mainPanel(
+    p('table 1. status and corrupt messages'),
+    tableOutput('statuscorrupt'),
+    br(), br(),
+    p('table 2. location summary'),
+    tableOutput('locationsum'),
+    br(), br(),
+    p('table 3. behavior data and gap summary'),
+    tableOutput('behaviorsum'),
+    br(), br(),
+    p('table 4. series data and gap summary'),
+    tableOutput('seriessum')
+  )),
   tabPanel('behavior', mainPanel()),
   tabPanel('series', mainPanel()),
+  tabPanel('pressure health', mainPanel()),
   tabPanel('positions', mainPanel())
 )

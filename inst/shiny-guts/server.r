@@ -1,7 +1,9 @@
-ceetable_cur <- NULL
+### globals
+# the tags!
 tags <- NULL
 
-
+# table of cees to highlight in various plots
+ceetable_cur <- NULL
 
 function(input, output, session) {
 	
@@ -30,8 +32,17 @@ function(input, output, session) {
   
   # upload the tags
   observeEvent(input$upload, {
+      tryCatch({
     tags <- sattagutils::batch_load_tags(input$datadirpath)
+      }, error = function(e) {
+        warning(e)
+      })
     output$uploadsuccess <- renderText(paste('uploaded', length(tags), 'tags'))
+    calculatestats()
+    output$statuscorrupt <- renderTable(statuscorruptdf)
+    output$locationsum <- renderTable(locationsdf)
+    output$behaviorsum <- renderTable(behaviordf)
+    output$seriessum <- renderTable(seriesdf)
   })
   
   # add a line to the cee table
@@ -65,4 +76,8 @@ function(input, output, session) {
     ceetable_cur <<- ceetabdf_tmp
     output$ceetab <- renderTable(ceetable_cur)
   })
+  
+  ### summary
+  
+
 }
