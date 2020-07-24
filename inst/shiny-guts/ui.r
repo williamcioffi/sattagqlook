@@ -54,7 +54,20 @@ navbarPage('sattagqlook',
     uiOutput('behtags'),
     plotOutput('behplot')
   )),
-  tabPanel('series', mainPanel()),
-  tabPanel('pressure health', mainPanel()),
-  tabPanel('positions', mainPanel())
+  tabPanel('series', mainPanel(
+    uiOutput('sertags'),
+    plotOutput('serplot')
+  )),
+  tabPanel('pressure health', mainPanel(
+    uiOutput('healthtags'),
+    plotOutput('healthplot')
+  )),
+  tabPanel('positions', mainPanel(
+    uiOutput('postags'),
+    fluidRow(
+      column(1, checkboxGroupInput('qflags', 'qflags', choices = c('Z', 'A', 'B', '0', '1', '2', '3'), selected = c('Z', 'A', 'B', '0', '1', '2', '3'))),
+      column(9, leafletOutput('leafmap', height = '600px', width = '600px'))
+    ),
+		tableOutput('postable')
+  ))
 )
