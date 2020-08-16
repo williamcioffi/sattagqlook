@@ -2,7 +2,7 @@ Package: sattagqlook
 Title: take a peak at SPLASH10 tags
 Version: 0.0.0.9000
 Date: 2020-07-23
-Authors@R: Authors@R: person("William R.", "Cioffi", email = "wrc14@duke.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1182-8578"))
+Authors@R: person("William R.", "Cioffi", email = "wrc14@duke.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1182-8578"))
 Author: William R. Cioffi [aut, cre]
 Maintainer: William R. Cioffi <wrc14@duke.edu>
 Description: an update to argoslook
