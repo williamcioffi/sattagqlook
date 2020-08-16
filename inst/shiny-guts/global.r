@@ -150,6 +150,7 @@ plothealth <- function(tag) {
 maketablepos <- function(tag, qflags) {
   loc <- sattagutils::getstream(tag, 'locations', squash = TRUE)
   adat <- data.frame(lon = loc$Longitude, lat = loc$Latitude, qflag = loc$Quality, date = loc$originaldate)
+  adat <- adat[rev(order(loc$Date)), ]
   adat[adat$qflag %in% qflags, ]
 }
 
